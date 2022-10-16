@@ -16,4 +16,15 @@ response = requests.get(OWM_endpoint, params=weather_params)
 response.raise_for_status()
 
 weather_data = response.json()
-print(weather_data)
+weather_dict = weather_data["weather"][0]
+condition_code = weather_dict["id"]
+
+will_rain = False
+
+if int(condition_code) < 700:
+    will_rain = True
+
+if will_rain: 
+    print("Bring an umbrella!")
+else:
+    print("You're staying dry")
