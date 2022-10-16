@@ -3,13 +3,17 @@ from pip._vendor import requests
 import config
 
 OWM_endpoint = "https://api.openweathermap.org/data/2.5/weather"
-api_key = config.api_key
+api_key = config.weather_api_key
 
 weather_params = {
     "lat": "47.6062",
     "lon": "-122.3321",
-    "appid": api_key
+    "appid": api_key,
+    "exclude": "current,minutely,daily"
 }
 
 response = requests.get(OWM_endpoint, params=weather_params)
-print(response.status_code)
+response.raise_for_status()
+
+weather_data = response.json()
+print(weather_data)
