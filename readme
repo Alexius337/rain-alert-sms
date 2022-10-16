@@ -1,0 +1,4 @@
+This program will scan the weather and send you a SMS if it is raining. 
+
+For the app to run without changes, add a "config.py" file to your local repo with the following structure:
+weather_api_key = "your api key goes here"
