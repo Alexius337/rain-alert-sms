@@ -45,4 +45,5 @@ message = client.messages.create(
     from_=twilio_number,
     body=rain_message
     )
+# Verify SMS message was sent successfully 
 print(message.status)
